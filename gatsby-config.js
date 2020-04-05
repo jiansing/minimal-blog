@@ -4,8 +4,18 @@ require(`dotenv`).config({
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `Jiansing&#39;s Blog`,
-    siteTitleAlt: `Jiansing&#39;s Blog - 念念不忘，必有回响`,
+    siteTitle: `Jiansing's Blog`,
+    siteTitleAlt: `Jiansing's Blog - 念念不忘，必有回响`,
+    siteHeadline: `Jiansing's Blog - 念念不忘，必有回响`,
+    siteUrl: `https://blog.ofo.moe`,
+    siteDescription: `欢迎来到我的小站呀，很高兴遇见你！🤝`,
+    siteLanguage: `zh-Hans`,
+    author: `@iwyifan`,
+
+
+
+
+
   },
   plugins: [
     {
