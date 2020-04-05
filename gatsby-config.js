@@ -23,11 +23,11 @@ module.exports = {
         externalLinks: [
           {
             name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            url: `https://twitter.com/iwyifan`,
           },
           {
-            name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            name: `Telegram`,
+            url: `https://t.me/jiansing`,
           },
         ],
       },
@@ -35,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        trackingId: process.env.UA-159286732-3,
       },
     },
     `gatsby-plugin-sitemap`,
