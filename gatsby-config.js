@@ -21,7 +21,7 @@ module.exports = {
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
-        formatString: YYYY.MM.DD,
+        formatString: `YYYY.MM.DD`,
         feedTitle: `Jiansing's Blog - 念念不忘，必有回响`,
         navigation: [
           {
