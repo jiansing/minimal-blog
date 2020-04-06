@@ -21,6 +21,8 @@ module.exports = {
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
+        formatString: YYYY.MM.DD,
+        feedTitle: `Jiansing's Blog - 念念不忘，必有回响`,
         navigation: [
           {
             title: `Blog`,
@@ -53,8 +55,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
+        name: `Jiansing's Blog - 念念不忘，必有回响`,
+        short_name: `Jiansing's Blog`,
         description: `欢迎来到我的小站呀，很高兴遇见你！🤝`,
         start_url: `/`,
         background_color: `#fff`,
