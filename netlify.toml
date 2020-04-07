@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://ohblog.netlify.com/*"
+  to = "https://blog.ofo.moe/:splat"
+  force = true
+
