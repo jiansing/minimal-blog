@@ -1,0 +1,55 @@
+---
+title: "给部署在 Netlify 上的站点添加HTTP security headers增强安全性"
+date: 2020-04-08
+description: 给部署在 Netlify 上的站点添加HTTP security headers，增强浏览器的安全性。
+tags:
+  - Security
+  - Blog
+  - Netlify
+slug: "/add-security-header-on-netlify"
+banner: ./add-security-header-on-netlify.jpg
+---
+
+本站是部署在 netlify 上的静态Blog， netlify 提供了两种配置自定义响应头的方法
+
+[^1]:官方文档：https://docs.netlify.com/routing/headers/
+
+，这里我使用 `netlify.toml` 文件进行配置。
+
+[TOC]
+
+## Strict-Transport-Security(HSTS)
+
+
+
+**HSTS** 也就是**HTTP严格传输安全**的英文缩写
+
+[^2]:维基百科：[https://zh.wikipedia.org/wiki/HTTP%E4%B8%A5%E6%A0%BC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8](https://zh.wikipedia.org/wiki/HTTP严格传输安全)
+
+。
+
+> 网站可以选择使用 HSTS 策略，来让浏览器强制使用 HTTPS 与网站进行通信，以减少会话劫持风险。
+>
+
+netlify 可以直接在域名设置里开启强制 HTTPS ，开启后HTTP请求会被重定向到HTTPS请求，并且加上了一个 HSTS 响应头；不过，netlify 添加 HSTS 响应头默认没有包括子域名，也没有添加 HSTS preload ，为了更安全，建议加入 HSTS preload 列表。
+
+在 `netlify.toml` 文件
+
+[^3]:如果没有，可以在网站根目录下创建一个
+
+里面加入以下代码
+
+```toml
+[[headers]]
+
+  for = "/*"
+
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+```
+
+
+
+
+
+未完待续

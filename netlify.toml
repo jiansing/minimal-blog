@@ -16,47 +16,69 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    Content-Security-Policy-Report-Only = "connect-src 'self'; font-src d33wubrfki0l68.cloudfront.net fonts.gstatic.com 'self'; img-src 'self' data: d33wubrfki0l68.cloudfront.net www.gstatic.com www.google-analytics.com; manifest-src 'self'; prefetch-src 'self'; script-src-elem 'self' 'unsafe-inline' www.google-analytics.com; worker-src 'self'; script-src 'unsafe-eval' 'self' 'unsafe-inline'; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline' fonts.googleapis.com 'self'; report-uri https://ofomoe.report-uri.com/r/d/csp/wizard"
-    Feature-Policy = "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+    Content-Security-Policy-Report-Only = "connect-src 'self' www.google-analytics.com; font-src d33wubrfki0l68.cloudfront.net fonts.gstatic.com 'self'; img-src 'self' data: d33wubrfki0l68.cloudfront.net www.gstatic.com www.google-analytics.com; manifest-src 'self'; prefetch-src 'self'; script-src-elem 'self' 'unsafe-inline' www.google-analytics.com; worker-src 'self'; script-src 'unsafe-eval' 'self' 'unsafe-inline'; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline' fonts.googleapis.com 'self'; report-uri https://ofomoe.report-uri.com/r/d/csp/wizard"
+    Feature-Policy = "accelerometer 'none'; ambient-light-sensor 'none'; camera 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
     Expect-CT = "max-age=86400; enforce; report-uri='https://ofomoe.report-uri.com/r/d/ct/enforce'"
     X-DNS-Prefetch-Control = "on"
+    X-UA-Compatible = "ie=edge"
+
 
 
 [[headers]]
   for = "*.gif"
   [headers.values]
     Content-Type = "image/gif"
+    Cache-Control = "public, max-age=31536000,immutable"
+
 
 [[headers]]
   for = "*.jpg"
   [headers.values]
     Content-Type = "image/jpeg"
+    Cache-Control = "public, max-age=31536000,immutable"
+
 
 [[headers]]
   for = "*.png"
   [headers.values]
     Content-Type = "image/png"
+    Cache-Control = "public, max-age=31536000,immutable"
+
 
 [[headers]]
   for = "*.svg"
   [headers.values]
     Content-Type = "image/svg+xml; charset=utf-8"
+    Cache-Control = "public, max-age=31536000,immutable"
+
 
 [[headers]]
   for = "*.js"
   [headers.values]
     Content-Type = "application/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/manifest.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
 
 [[headers]]
   for = "/rss.xml"
   [headers.values]
     Content-Type = "application/atom+xml; charset=utf-8"
 
+[[headers]]
+  for = "*.css" 
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, must-revalidate"
 
 
 
