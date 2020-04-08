@@ -18,7 +18,7 @@
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     Content-Security-Policy-Report-Only = "connect-src 'self'; font-src d33wubrfki0l68.cloudfront.net; img-src 'self' data:; manifest-src 'self'; prefetch-src 'self'; script-src-elem 'self' 'unsafe-inline'; worker-src 'self'; script-src 'unsafe-eval'; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline'; report-uri https://ofomoe.report-uri.com/r/d/csp/wizard"
     Feature-Policy = "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
-    Expect-CT = "max-age=60; enforce; report-uri='https://ofomoe.report-uri.com/r/d/ct/enforce'"
+    Expect-CT = "max-age=86400; enforce; report-uri='https://ofomoe.report-uri.com/r/d/ct/enforce'"
 
 
 [[headers]]
