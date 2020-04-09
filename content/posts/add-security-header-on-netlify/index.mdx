@@ -58,7 +58,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 在 `netlify.toml` 文件的 `[headers.values]` 下面加入一行：
 
-```toml:title=netlify.toml {7}
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
@@ -87,7 +87,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 注意最后一项配置仅 Chromium 内核浏览器支持。下面是一个示例：
 
-```toml:title=netlify.toml {8}
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
@@ -114,7 +114,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 添加 Expect-CT 也很简单：
 
-```toml:title=netlify.toml {9}
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
@@ -138,7 +138,7 @@ CSP配置比较复杂，我使用了 **Report URI** 的 CSP向导 来生成配�
 
 注册后你会得到一个用来接收报告的 url，你可以换一个好看的子域名。在 `netlify.toml` 文件的 `[headers.values]` 下面加入一行（注意替换 `{subdomain}` 为你自己的子域名）：
 
-```toml:title=netlify.toml {10}
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
@@ -159,7 +159,7 @@ CSP配置比较复杂，我使用了 **Report URI** 的 CSP向导 来生成配�
 
 Report URI 建议至少运行 CSP 向导 7 天，以确保覆盖所有流量和用户，如果没有继续收到新的「违规资源」，就可以将 CSP 策略更改为「执行」。
 
-```toml:title=netlify.toml {10}
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
@@ -195,7 +195,7 @@ https://www.cspisawesome.com/
 
 下面贴一个我的配置：
 
-```toml:title=netlify.toml {11}
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
