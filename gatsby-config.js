@@ -39,8 +39,8 @@ module.exports = {
             url: `https://twitter.com/iwyifan`,
           },
           {
-            name: `Telegram`,
-            url: `https://t.me/jiansing`,
+            name: `RSS`,
+            url: `https://blog.ofo.moe/rss.xml`,
           },
         ],
       },
