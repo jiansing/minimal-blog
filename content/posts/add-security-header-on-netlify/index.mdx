@@ -10,7 +10,7 @@ slug: "/add-security-header-on-netlify"
 banner: ./add-security-header-on-netlify.jpg
 ---
 
-本站是部署在 netlify 上的静态 Blog，netlify 提供了两种配置自定义响应头的[方法](https://docs.netlify.com/routing/headers/)，这里我使用 `netlify.toml` 文件进行配置。
+本站是部署在 netlify 上的静态 Blog，netlify 提供了两种配置自定义响应头的 [方法](https://docs.netlify.com/routing/headers/)，这里我使用 `netlify.toml` 文件进行配置。
 
 
 
@@ -46,7 +46,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 
 
-**X-Frame-Options** 可以通过确保网站没有被嵌入到别人的站点里面，从而避免 clickjacking （点击劫持）攻击，[大部分浏览器](https://caniuse.com/#search=X-Frame-Options)都能很好的支持这个响应头。
+**X-Frame-Options** 可以通过确保网站没有被嵌入到别人的站点里面，从而避免 clickjacking （点击劫持）攻击，[大部分浏览器](https://caniuse.com/#search=X-Frame-Options) 都能很好的支持这个响应头。
 
 这个响应头支持三种配置值：
 
