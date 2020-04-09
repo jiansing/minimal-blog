@@ -39,7 +39,7 @@ module.exports = {
             url: `https://twitter.com/iwyifan`,
           },
           {
-            name: `RSS`,
+            name: `Rss`,
             url: `https://blog.ofo.moe/rss.xml`,
           },
         ],
