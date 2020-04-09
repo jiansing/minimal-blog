@@ -14,7 +14,7 @@
 
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block; report=https://ofomoe.report-uri.com/r/d/xss/enforce"
+    X-XSS-Protection = "1; mode=block"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     Content-Security-Policy-Report-Only = "connect-src 'self' www.google-analytics.com; font-src d33wubrfki0l68.cloudfront.net fonts.gstatic.com 'self'; img-src 'self' data: d33wubrfki0l68.cloudfront.net www.gstatic.com www.google-analytics.com; manifest-src 'self'; prefetch-src 'self'; script-src-elem 'self' 'unsafe-inline' www.google-analytics.com; worker-src 'self'; script-src 'unsafe-eval' 'self' 'unsafe-inline'; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline' fonts.googleapis.com 'self'; report-uri https://ofomoe.report-uri.com/r/d/csp/wizard"
     Feature-Policy = "accelerometer 'none'; ambient-light-sensor 'none'; camera 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
