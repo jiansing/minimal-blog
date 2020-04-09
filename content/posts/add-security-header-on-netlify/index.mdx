@@ -113,6 +113,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 - `enforce`：该指令会强制执行证书透明度政策，如果不合规将拒绝连接
 
 添加 Expect-CT 也很简单：
+
 ```toml:title=netlify.toml {9}
 [[headers]]
 
@@ -136,6 +137,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 CSP配置比较复杂，我使用了 **Report URI** 的 CSP向导 来生成配置。点击 [这里](https://report-uri.com/) 注册一个账号，免费计划可以每月获取 10000 次报告，监控三个站点，保留 90 天报告数据，对于一个 Blog 来说完全够了。
 
 注册后你会得到一个用来接收报告的 url，你可以换一个好看的子域名。在 `netlify.toml` 文件的 `[headers.values]` 下面加入一行（注意替换 `{subdomain}` 为你自己的子域名）：
+
 ```toml:title=netlify.toml {10}
 [[headers]]
 
@@ -156,6 +158,7 @@ CSP配置比较复杂，我使用了 **Report URI** 的 CSP向导 来生成配�
 ![](./csp-wizard.png)
 
 Report URI 建议至少运行 CSP 向导 7 天，以确保覆盖所有流量和用户，如果没有继续收到新的「违规资源」，就可以将 CSP 策略更改为「执行」。
+
 ```toml:title=netlify.toml {10}
 [[headers]]
 
