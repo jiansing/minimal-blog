@@ -10,7 +10,7 @@ slug: "/add-security-header-on-netlify"
 banner: ./add-security-header-on-netlify.jpg
 ---
 
-本站是部署在 netlify 上的静态Blog， netlify 提供了两种配置自定义响应头的[方法](https://docs.netlify.com/routing/headers/)，这里我使用 `netlify.toml` 文件进行配置。
+本站是部署在 netlify 上的静态 Blog，netlify 提供了两种配置自定义响应头的[方法](https://docs.netlify.com/routing/headers/)，这里我使用 `netlify.toml` 文件进行配置。
 
 
 
@@ -29,7 +29,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 在 `netlify.toml` 文件（没有就在网站根目录下创建一个）里面加入以下代码：
 
-```toml
+```toml:title=netlify.toml
 [[headers]]
 
   for = "/*"
@@ -74,16 +74,16 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 
 
-**X-XSS-Protection** 响应头是用来防范XSS的，当检测到跨站脚本攻击 (XSS) 时，浏览器将停止加载页面。现代浏览器中默认都开启了 XSS 保护，并且使用更强大的 Content-Security-Policy 响应头进一步增强安全性。
+**X-XSS-Protection** 响应头是用来防范 XSS 的，当检测到跨站脚本攻击 (XSS) 时，浏览器将停止加载页面。现代浏览器中默认都开启了 XSS 保护，并且可以使用更强大的 Content-Security-Policy 响应头进一步增强安全性。
 
 所以，这个响应头主要是为尚不支持 CSP 的旧版浏览器的用户提供保护。开启后可以提升攻击难度，没有特别的理由，不要关闭它，聊胜于无嘛。
 
 它也有几种配置：
 
-- `0`：禁用XSS保护
-- `1`：启用XSS保护
-- `1; mode=block`：启用XSS保护，并在检查到XSS攻击时，停止渲染页面
-- `1; report=reporting-URI`：启用XSS过滤，并在检查到XSS攻击时，浏览器将停止渲染页面并使用类似 CSP report-uri 指令的功能发送违规报告
+- `0`：禁用 XSS 保护
+- `1`：启用 XSS 保护
+- `1; mode=block`：启用 XSS 保护，并在检查到 XSS 攻击时，停止渲染页面
+- `1; report=reporting-URI`：启用 XSS 过滤，并在检查到 XSS 攻击时，浏览器将停止渲染页面并使用类似 CSP report-uri 指令的功能发送违规报告
 
 注意最后一项配置仅 Chromium 内核浏览器支持。下面是一个示例：
 
@@ -109,7 +109,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 它有三种指令：
 
 - `max-age`：Expect-CT 有效时间，单位为秒
-- `report-uri="url"`：可选，配置发送违规报告的url
+- `report-uri="url"`：可选，配置发送违规报告的 url
 - `enforce`：该指令会强制执行证书透明度政策，如果不合规将拒绝连接
 
 添加 Expect-CT 也很简单：
@@ -133,7 +133,7 @@ netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 **Content-Security-Policy** 允许控制页面可以加载哪些资源，减少 XSS 的发生。[CanIUse](http://caniuse.com/#feat=contentsecuritypolicy) 上可以看到大多数主流浏览器（除了 Internet Explorer）都支持了 Content-Security-Policy。
 
-CSP配置比较复杂，我使用了 **Report URI** 的 CSP向导 来生成配置。点击 [这里](https://report-uri.com/) 注册一个账号，免费计划可以每月获取 10000 次报告，监控三个站点，保留 90 天报告数据，对于一个 Blog 来说完全够了。
+CSP 配置比较复杂，我使用了 **Report URI** 的 CSP 向导来生成配置。点击 [这里](https://report-uri.com/) 注册一个账号，免费计划可以每月获取 10000 次报告，监控三个站点，保留 90 天报告数据，对于一个 Blog 来说完全够了。
 
 注册后你会得到一个用来接收报告的 url，你可以换一个好看的子域名。在 `netlify.toml` 文件的 `[headers.values]` 下面加入一行（注意替换 `{subdomain}` 为你自己的子域名）：
 ```toml:title=netlify.toml {10}
@@ -169,7 +169,9 @@ Report URI 建议至少运行 CSP 向导 7 天，以确保覆盖所有流量和�
     Content-Security-Policy: default-src 'none'; form-action 'none'; frame-ancestors 'none'; report-uri https://{subdomain}.report-uri.com/r/d/csp/enforce
 ```
 
-此外，你还可以使用 [CSP Evaluator](https://csp-evaluator.withgoogle.com/) 或 [Report URI](https://report-uri.com/home/analyse) 来评估你的 CSP 策略是否安全。这里在放两个 CSP 手动生成器：
+此外，你还可以使用 [CSP Evaluator](https://csp-evaluator.withgoogle.com/) 或 [Report URI](https://report-uri.com/home/analyse) 来评估你的 CSP 策略是否安全。
+
+这里再放两个 CSP 手动生成器：
 
 https://report-uri.com/home/generate
 
