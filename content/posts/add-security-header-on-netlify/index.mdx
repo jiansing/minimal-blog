@@ -222,6 +222,7 @@ Chromium 支持进行控制的功能清单可以看 [这里](https://source.chro
 
 ![给部署在 Netlify 上的站点添加 HTTP security headers 增强安全性](./add-security-header-on-netlify.png "给部署在 Netlify 上的站点添加 HTTP security headers 增强安全性")
 
+------
 
 参考链接：
 
@@ -229,3 +230,22 @@ Chromium 支持进行控制的功能清单可以看 [这里](https://source.chro
 - [Introduction - Content Security Policy](https://csp-collector.appspot.com/docs/index.html "Introduction - Content Security Policy")
 - [一些安全相关的HTTP响应头](https://imququ.com/post/web-security-and-response-header.html "一些安全相关的HTTP响应头")
 - [Hardening your HTTP response headers](https://scotthelme.co.uk/hardening-your-http-response-headers/ "Hardening your HTTP response headers")
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
+<div id="gitalk-container"></div>     
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+    	clientID: `8a026294c6f895e89e4e`,
+    	clientSecret: `2cb6dbd455bac19577859103978c4fdc4b586b2b`,
+    	repo: `minimal-blog`,
+    	owner: 'jiansing',
+    	admin: ['jiansing'],
+    	id: 'add-security-header-on-netlify',
+
+    });
+    gitalk.render('gitalk-container');
+</script>
