@@ -5,7 +5,7 @@ import React from "react"
 import Layout from "./layout"
 import ItemTags from "./item-tags"
 import SEO from "./seo"
-import { DiscussionEmbed } from 'disqus-react'
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 
 type PostProps = {
@@ -59,10 +59,12 @@ const Post = ({ data: { post } }: PostProps) => (
     </p>
     <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
       <MDXRenderer>{post.body}</MDXRenderer>
-      const disqusConfig = {
-  config: { identifier: {post.slug}, title: {post.title} },
-}
-      <DiscussionEmbed {...disqusConfig} /> 
+      let disqusConfig = {
+    url: `{post.slug}`,
+    identifier: {post.slug},
+    title: {post.title},
+  }
+      <Disqus config={disqusConfig} />
     </section>
   </Layout>
 )
