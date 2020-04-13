@@ -19,6 +19,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `jiansing`
+      }
+    },
+    {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
         formatString: `YYYY.MM.DD`,

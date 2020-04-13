@@ -5,6 +5,8 @@ import React from "react"
 import Layout from "./layout"
 import ItemTags from "./item-tags"
 import SEO from "./seo"
+import { DiscussionEmbed } from "disqus-react";
+
 
 type PostProps = {
   data: {
@@ -29,6 +31,11 @@ type PostProps = {
       }
     }
   }
+}
+
+const disqusConfig = {
+  shortname: "jiansing",
+  config: { identifier: {post.slug}, title: {post.title} },
 }
 
 const px = [`32px`, `16px`, `8px`, `4px`]
@@ -56,6 +63,7 @@ const Post = ({ data: { post } }: PostProps) => (
     </p>
     <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
       <MDXRenderer>{post.body}</MDXRenderer>
+      <DiscussionEmbed {...disqusConfig} /> 
     </section>
   </Layout>
 )
