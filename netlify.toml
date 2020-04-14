@@ -80,6 +80,9 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, must-revalidate"
 
+[[plugins]]
+package = "netlify-plugin-subfont"
+package = "netlify-plugin-gatsby-cache"
 
 
 
