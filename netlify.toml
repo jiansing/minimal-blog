@@ -83,8 +83,6 @@
 [[plugins]]
 package = "netlify-plugin-gatsby-cache"
 
-[[plugins]]
-package = "netlify-plugin-subfont"
 
 
 
