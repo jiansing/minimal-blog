@@ -59,6 +59,7 @@ const Post = ({ data: { post } }: PostProps) => (
     </p>
     <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
       <MDXRenderer>{post.body}</MDXRenderer>
+      <div class="addthis_inline_share_toolbox_oodl"></div>      
       <DisqusTemplate
         siteUrl='https://blog.ofo.moe'
         title={post.title}
