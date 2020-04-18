@@ -42,11 +42,17 @@ const SEO = ({ title, description, pathname, image, children }: Props) => {
       <html lang={siteLanguage} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      <meta name="robots" content="max-image-preview:large">
+      <meta name="author" content="Jiansing, i@ofo.moe">
+      <meta itemprop="name" content={seo.title} />
+      <meta itemprop="description" content={seo.description} />
+      <meta itemprop="image" content={seo.image} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:url" content={seo.url} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Jiansing's Blog - 念念不忘，必有回响">
       <meta property="og:image:alt" content={seo.description} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
@@ -56,9 +62,24 @@ const SEO = ({ title, description, pathname, image, children }: Props) => {
       <meta name="twitter:image:alt" content={seo.description} />
       <meta name="twitter:creator" content={author} />
       <meta name="gatsby-theme" content="@lekoarts/gatsby-theme-minimal-blog" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <script type="application/ld+json">
+       {
+        "@context": "https://schema.org",
+        "@type" : "Article",
+        "name" : {seo.title},
+        "author" : {
+        "@type" : "Person",
+        "name" : "jiansing"
+        },
+        "image" : {seo.image},
+        "url" : {seo.url}
+       }
+
+    </script>
       {children}
     </Helmet>
   )
