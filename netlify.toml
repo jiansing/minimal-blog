@@ -41,6 +41,12 @@
   [headers.values]
     Content-Type = "application/json; charset=utf-8"
 
+    
+[[headers]]
+  for = "*.js" 
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
 
 
 
