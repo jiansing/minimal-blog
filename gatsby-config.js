@@ -8,8 +8,9 @@ module.exports = {
     siteTitleAlt: `Jiansing's Blog - 念念不忘，必有回响`,
     siteHeadline: `Jiansing's Blog - 念念不忘，必有回响`,
     siteUrl: `https://blog.ofo.moe`,
-    siteDescription: `欢迎来到我的Blog呀，很高兴遇见你！🤝`,
+    siteDescription: `「与君初相识，犹如故人归」Hi！我是 Jiansing，欢迎来到我的 Blog 呀，很高兴遇见你！🤝`,
     siteLanguage: `zh-Hans`,
+    siteImage: `/banner.jpg`,
     author: `@iwyifan`,
 
 
@@ -70,7 +71,7 @@ module.exports = {
       options: {
         name: `Jiansing's Blog - 念念不忘，必有回响`,
         short_name: `Jiansing's Blog`,
-        description: `欢迎来到我的Blog呀，很高兴遇见你！🤝`,
+        description: `「与君初相识，犹如故人归」Hi！我是 Jiansing，欢迎使用 PWA 访问我的 Blog 呀，很高兴遇见你！🤝`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
