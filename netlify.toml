@@ -46,6 +46,9 @@
   for = "*.js" 
   [headers.values]
     Content-Type = "application/javascript; charset=utf-8"
+    Vary = "Accept-Encoding"
+
+
 
 
 
