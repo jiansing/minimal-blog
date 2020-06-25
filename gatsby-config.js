@@ -69,8 +69,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Jiansing's Blog - 念念不忘，必有回响`,
-        short_name: `Jiansing's Blog`,
+        name: `Jiansing's Blog`,
+        short_name: `JiansingBlog`,
         description: `「与君初相识，犹如故人归」Hi！我是 Jiansing，欢迎使用 PWA 访问我的 Blog 呀，很高兴遇见你！🤝`,
         start_url: `/`,
         background_color: `#fff`,
