@@ -94,14 +94,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-         workboxConfig: {
-          importWorkboxFrom: `local`,
-        }
-      }
-   },
     `gatsby-plugin-netlify`,
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
