@@ -88,6 +88,7 @@ module.exports = {
             type: `image/png`,
           },
         ],
+        legacy: false, // this will not add apple-touch-icon links to <head>
       },
     },
     `gatsby-plugin-offline`,
