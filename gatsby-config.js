@@ -89,6 +89,8 @@ module.exports = {
           },
         ],
         legacy: false, // this will not add apple-touch-icon links to <head>
+        crossOrigin: `use-credentials`, // `use-credentials` or `anonymous`
+
       },
     },
     `gatsby-plugin-offline`,
