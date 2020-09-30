@@ -9,16 +9,25 @@
   for = "/*"
 
   [headers.values]
-    X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block; report=https://ofomoe.report-uri.com/r/d/csp/enforce"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' jiansing.disqus.com www.google-analytics.com c.disquscdn.com; style-src 'self' 'unsafe-inline' c.disquscdn.com; img-src 'self' data: www.google-analytics.com c.disquscdn.com referrer.disqus.com api.netlify.com; font-src 'self' data:; connect-src 'self' www.google-analytics.com c.disquscdn.com disqus.com jiansing.disqus.com; media-src 'self' www.youtube.com; object-src 'none'; prefetch-src blog.ofo.moe c.disquscdn.com disqus.com www.google-analytics.com forms.office.com; child-src 'self' www.youtube.com disqus.com forms.office.com; worker-src 'self'; frame-ancestors 'none'; form-action 'self' forms.office.com; upgrade-insecure-requests; block-all-mixed-content; base-uri 'self'; manifest-src 'self'; report-uri https://ofomoe.report-uri.com/r/d/csp/wizard"
     Permissions-Policy = "accelerometer=(); ambient-light-sensor=(); camera=(); gyroscope=(); magnetometer=(); microphone=(); payment=(); usb=()"
-    Expect-CT = "max-age=864000; enforce; report-uri='https://ofomoe.report-uri.com/r/d/ct/enforce'"
+    Feature-Policy = "accelerometer 'none'; ambient-light-sensor 'none'; camera 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+    Expect-CT = "max-age=2592000; enforce; report-uri='https://ofomoe.report-uri.com/r/d/ct/enforce'"
     X-DNS-Prefetch-Control = "on"
     X-UA-Compatible = "ie=edge"
-
-
+    Report-To = '''{
+      "group":"report-uri",
+      "max_age":31536000,
+      "endpoints":[
+        {"url":"https://ofomoe.report-uri.com/a/d/g"}
+      ],"include_subdomains":true}'''
+    NEL = '''{
+      "report_to":"report-uri",
+      "max_age":31536000,
+      "include_subdomains":true
+    }'''
 
 [[headers]]
   for = "/sw.js"
@@ -67,7 +76,7 @@ package = "netlify-plugin-subfont"
 
   # Inline generated CSS @font-face blocks into each page
   # When set to `false` an external CSS file will be created
-  inlineCss = true
+  inlineCss = false
 
   # Inline generated font subsets into their respective @font-face blocks
   # When set to `false` external font files will be created
