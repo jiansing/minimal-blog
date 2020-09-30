@@ -46,6 +46,8 @@ Netlify 可以直接在域名设置里开启强制 HTTPS，开启后 HTTP 请求
 
 
 
+**2020-09-30** 更新：现已不建议使用此标头，通过 **Content-Security-Policy** 标头中的 **frame-ancestors** 指令，可以实现更一致的支持和更强大的检查，从而达到类似的效果。
+
 **X-Frame-Options** 可以通过确保网站没有被嵌入到别人的站点里面，从而避免 **clickjacking** （点击劫持）攻击，[大部分浏览器](https://caniuse.com/#search=X-Frame-Options "X-Frame-Options 浏览器支持情况") 都能很好的支持这个响应头。
 
 这个响应头支持三种配置值：
@@ -179,9 +181,11 @@ https://www.cspisawesome.com/
 
 
 
-## Feature-Policy
+## Feature-Policy（功能政策）
 
 
+
+**2020-09-30** 更新：现已被 **Permissions Policy**（权限政策）标头取代，但由于目前仅被最新的 Chrome Dev 支持，建议暂时保留此标头，同时加上最新的 **Permissions Policy**（权限政策）标头。
 
 **Feature Policy** 是一个还在实验阶段的功能，用来启用或禁用某些浏览器功能和 API，以提高安全性和隐私性。它的配置和 CSP 类似。
 
@@ -213,6 +217,51 @@ https://www.cspisawesome.com/
 Chromium 支持进行控制的功能清单可以看 [这里](https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/platform/feature_policy/feature_policy.cc;drc=ab90b51c5b60de15054a32b0bd18e4839536a1c9;l=138?originalUrl=https:%2F%2Fcs.chromium.org%2Fchromium%2Fsrc%2Fthird_party%2Fblink%2Frenderer%2Fplatform%2Ffeature_policy%2Ffeature_policy.cc "Chromium 支持进行控制的功能清单")。
 
 
+
+
+
+## Permissions Policy（权限政策）
+
+功能与 **Feature Policy** 类似，但格式有所不同，上面的 **Feature Policy** 更换为相应的 **Permissions Policy** 如下：
+
+```
+
+    Permissions-Policy = "accelerometer=(); ambient-light-sensor=(); camera=(); gyroscope=(); magnetometer=(); microphone=(); payment=(); usb=()"
+```
+
+
+
+## Report-To
+
+用于启用报告 API。这使得网站可以从浏览器收集有关可能发生的各种错误的报告。你同样可以在 [Report URI](https://report-uri.com/) 上注册一个免费帐户以收集这些报告。
+
+
+
+```toml:title=netlify.toml {13-23}
+[[headers]]
+
+  for = "/*"
+
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block; report=<url>"
+    Expect-CT = "max-age=86400; enforce; report-uri='<url>'"
+    Content-Security-Policy: default-src 'none'; form-action 'none'; frame-ancestors 'none'; report-uri https://{subdomain}.report-uri.com/r/d/csp/enforce
+    Feature-Policy = "accelerometer 'none'; ambient-light-sensor 'none'; camera 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+    Permissions-Policy = "accelerometer=(); ambient-light-sensor=(); camera=(); gyroscope=(); magnetometer=(); microphone=(); payment=(); usb=()"
+    Report-To = '''{
+      "group":"report-uri",
+      "max_age":31536000,
+      "endpoints":[
+        {"url":"<url>"}
+      ],"include_subdomains":true}'''
+    NEL = '''{
+      "report_to":"report-uri",
+      "max_age":31536000,
+      "include_subdomains":true
+    }'''
+```
 
 ## 检测响应头安全性
 
