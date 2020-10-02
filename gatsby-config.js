@@ -95,12 +95,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    {
-      resolve: 'gatsby-plugin-brotli',
-      options: {
-        extensions: ['css', 'html', 'js', 'svg']
-      }
-    }
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
 }
