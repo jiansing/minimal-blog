@@ -1,5 +1,6 @@
+
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui"
+import { jsx, Heading } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import Layout from "./layout"
@@ -19,9 +20,10 @@ type PostProps = {
         slug: string
       }[]
       description?: string
+      canonicalUrl?: string
       body: string
       excerpt: string
-      timeToRead: number
+      timeToRead?: number
       banner?: {
         childImageSharp: {
           resize: {
@@ -33,7 +35,6 @@ type PostProps = {
   }
 }
 
-
 const px = [`32px`, `16px`, `8px`, `4px`]
 const shadow = px.map((v) => `rgba(0, 0, 0, 0.15) 0px ${v} ${v} 0px`)
 
@@ -44,8 +45,9 @@ const Post = ({ data: { post } }: PostProps) => (
       description={post.description ? post.description : post.excerpt}
       image={post.banner ? post.banner.childImageSharp.resize.src : undefined}
       pathname={post.slug}
+      canonicalUrl={post.canonicalUrl}
     />
-    <Styled.h2>{post.title}</Styled.h2>
+    <Heading variant="styles.h2">{post.title}</Heading>
     <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
       <time>{post.date}</time>
       {post.tags && (
@@ -54,10 +56,16 @@ const Post = ({ data: { post } }: PostProps) => (
           <ItemTags tags={post.tags} />
         </React.Fragment>
       )}
-      {` — `}
-      <span>{post.timeToRead} 分钟阅读</span>
+      {post.timeToRead && ` — `}
+      {post.timeToRead && <span>{post.timeToRead} 分钟阅读</span>}
     </p>
-    <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
+    <section
+      sx={{
+        my: 5,
+        ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
+        variant: `layout.content`,
+      }}
+    >
       <MDXRenderer>{post.body}</MDXRenderer>
       <DisqusTemplate
         siteUrl='https://blog.ofo.moe'

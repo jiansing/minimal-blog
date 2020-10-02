@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui"
+import { jsx, Heading, Link as TLink } from "theme-ui"
 import { Flex } from "@theme-ui/components"
 import { Link } from "gatsby"
 import Layout from "./layout"
@@ -15,7 +15,7 @@ type TagProps = {
     date: string
     excerpt: string
     description: string
-    timeToRead: number
+    timeToRead?: number
     tags: {
       name: string
       slug: string
@@ -34,12 +34,12 @@ const Tag = ({ posts, pageContext }: TagProps) => {
 
   return (
     <Layout>
-      <SEO title={`标签: ${pageContext.name}`} />
+      <SEO title={`Tag: ${pageContext.name}`} />
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
-        <Styled.h2>{pageContext.name}</Styled.h2>
-        <Styled.a as={Link} sx={{ variant: `links.secondary` }} to={replaceSlashes(`/${basePath}/${tagsPath}`)}>
-          查看所有标签
-        </Styled.a>
+        <Heading variant="styles.h2">{pageContext.name}</Heading>
+        <TLink as={Link} sx={{ variant: `links.secondary` }} to={replaceSlashes(`/${basePath}/${tagsPath}`)}>
+         查看所有标签
+        </TLink>
       </Flex>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>
