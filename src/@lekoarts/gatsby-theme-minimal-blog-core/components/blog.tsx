@@ -6,13 +6,10 @@ type Props = {
     allPost: any
     [key: string]: string
   }
-  [key: string]: any
 }
 
-export default function MinimalBlogCoreBlog({ ...props }: Props) {
-  const {
-    data: { allPost },
-  } = props
+export default ({ data }: Props) => {
+  const { allPost } = data
 
-  return <Blog posts={allPost.nodes} {...props} />
+  return <Blog posts={allPost.nodes} />
 }

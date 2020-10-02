@@ -1,8 +1,6 @@
-
-/** @jsx jsx */
 import React from "react"
 import { Global } from "@emotion/core"
-import { Box, Container, jsx } from "theme-ui"
+import { Main, Styled, Container, css } from "theme-ui"
 import "typeface-ibm-plex-sans"
 import SEO from "./seo"
 import Header from "./header"
@@ -12,29 +10,22 @@ import SkipNavLink from "./skip-nav"
 
 type LayoutProps = { children: React.ReactNode; className?: string }
 
-const Layout = ({ children, className = `` }: LayoutProps) => (
-  <React.Fragment>
+const Layout = ({ children, className }: LayoutProps) => (
+  <Styled.root data-testid="theme-root">
     <Global
-      styles={(theme) => ({
+      styles={css({
         "*": {
           boxSizing: `inherit`,
         },
-        html: {
-          WebkitTextSizeAdjust: `100%`,
-        },
-        img: {
-          borderStyle: `none`,
-        },
-        pre: {
-          fontFamily: `monospace`,
-          fontSize: `1em`,
-        },
-        "[hidden]": {
-          display: `none`,
+        body: {
+          margin: 0,
+          padding: 0,
+          boxSizing: `border-box`,
+          textRendering: `optimizeLegibility`,
         },
         "::selection": {
-          backgroundColor: theme.colors.text,
-          color: theme.colors.background,
+          backgroundColor: `primary`,
+          color: `white`,
         },
         a: {
           transition: `all 0.3s ease-in-out`,
@@ -46,12 +37,12 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
     <SkipNavLink>Skip to content</SkipNavLink>
     <Container>
       <Header />
-      <Box id="skip-nav" sx={{ ...CodeStyles }} className={className}>
+      <Main id="skip-nav" css={css({ ...CodeStyles })} className={className}>
         {children}
-      </Box>
+      </Main>
       <Footer />
     </Container>
-  </React.Fragment>
+  </Styled.root>
 )
 
 export default Layout

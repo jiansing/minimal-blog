@@ -5,7 +5,7 @@ import { Text } from "@theme-ui/components"
 import Code from "../components/code"
 import Title from "../components/title"
 
-const components = {
+export default {
   Text: ({ children, ...props }) => <Text {...props}>{children}</Text>,
   Title: ({ children, text, ...props }) => (
     <Title text={text} {...props}>
@@ -23,5 +23,3 @@ const components = {
   },
   wrapper: ({ children }) => <>{children}</>,
 }
-
-export default components

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Link } from "theme-ui"
+import { jsx, Styled } from "theme-ui"
 import useSiteMetadata from "../hooks/use-site-metadata"
 
 const Footer = () => {

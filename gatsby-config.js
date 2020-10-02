@@ -1,9 +1,8 @@
-const newsletterFeed = require(`./src/utils/newsletterFeed`)
+require(`dotenv`).config({
+  path: `.env`,
+})
 
-module.exports = (options) => {
-  const { feed = true, feedTitle = `Jiansing's Blog - 念念不忘，必有回响` } = options
-
-  return {
+module.exports = {
   siteMetadata: {
     siteTitle: `Jiansing's Blog`,
     siteTitleAlt: `Jiansing's Blog - 念念不忘，必有回响`,
@@ -20,10 +19,6 @@ module.exports = (options) => {
 
   },
   plugins: [
-    {
-      resolve: `@lekoarts/gatsby-theme-minimal-blog-core`,
-      options,
-    },
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
@@ -100,26 +95,6 @@ module.exports = (options) => {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    {
-      resolve: 'gatsby-plugin-brotli',
-      options: {
-        extensions: ['css', 'html', 'js', 'svg']
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-zopfli',
-      options: {
-        extensions: ['css', 'html', 'js', 'svg']
-      }
-    },
-    feed && {
-      resolve: `gatsby-plugin-feed`,
-      options: newsletterFeed(feedTitle),
-    },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-theme-ui`,
-  ].filter(Boolean),
-}
+    // `gatsby-plugin-webpack-bundle-analyser-v2`,
+  ],
 }

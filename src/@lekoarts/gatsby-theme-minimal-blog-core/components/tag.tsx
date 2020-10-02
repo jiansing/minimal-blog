@@ -1,4 +1,3 @@
-
 import React from "react"
 import Tag from "../../../components/tag"
 
@@ -7,19 +6,11 @@ type Props = {
     allPost: any
     [key: string]: any
   }
-  pageContext: {
-    isCreatedByStatefulCreatePages: boolean
-    slug: string
-    name: string
-    [key: string]: any
-  }
-  [key: string]: any
+  pageContext: any
 }
 
-export default function MinimalBlogCoreTag({ ...props }: Props) {
-  const {
-    data: { allPost },
-  } = props
+export default ({ data, pageContext }: Props) => {
+  const { allPost } = data
 
-  return <Tag posts={allPost.nodes} {...props} />
+  return <Tag posts={allPost.nodes} pageContext={pageContext} />
 }

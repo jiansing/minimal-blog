@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 
-type UseMinimalBlogConfigProps = {
+type Props = {
   minimalBlogConfig: {
     basePath: string
     blogPath: string
@@ -16,12 +16,11 @@ type UseMinimalBlogConfigProps = {
       slug: string
     }[]
     showLineNumbers: boolean
-    showCopyButton: boolean
   }
 }
 
 const useMinimalBlogConfig = () => {
-  const data = useStaticQuery<UseMinimalBlogConfigProps>(graphql`
+  const data = useStaticQuery<Props>(graphql`
     query {
       minimalBlogConfig {
         basePath
@@ -38,7 +37,6 @@ const useMinimalBlogConfig = () => {
           slug
         }
         showLineNumbers
-        showCopyButton
       }
     }
   `)
